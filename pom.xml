@@ -17,6 +17,7 @@
 
 	<properties>
         <java.version>11</java.version>
+        <start-class>pl.put.poznan.transformer.app.TextTransformerApplication</start-class>
     </properties>
 
     
