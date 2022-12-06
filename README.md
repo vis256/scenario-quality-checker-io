@@ -7,7 +7,7 @@ Dla analityków dokumentujących wymagania funkcjonalne za pomocą scenariuszy n
 mvn spring-boot:run
 ```
 
-Domyślny port serwera - 8080
+Domyślny port serwera: 8080
 
 ### Przykładowy input JSON
 ```
