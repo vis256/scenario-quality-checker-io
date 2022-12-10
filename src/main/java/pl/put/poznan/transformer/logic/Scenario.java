@@ -1,5 +1,9 @@
 package pl.put.poznan.transformer.logic;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import pl.put.poznan.transformer.rest.ExportController;
+
 import java.util.ArrayList;
 
 public class Scenario {
@@ -8,11 +12,15 @@ public class Scenario {
     private String systemActor;
     private ArrayList<Step> steps;
 
+    private static final Logger log = LoggerFactory.getLogger(ExportController.class);
+
     public Scenario(String title, String systemActor, ArrayList<String> actors, ArrayList<Step> steps) {
         this.title = title;
         this.systemActor = systemActor;
         this.actors = actors;
         this.steps = steps;
+
+        log.debug("Created a Scenario object: " + title);
     }
 
     public Scenario(String title, String systemActor) {
@@ -20,6 +28,8 @@ public class Scenario {
         this.systemActor = systemActor;
         this.actors = null;
         this.steps = null;
+
+        log.debug("Created a Scenario object: " + title);
     }
 
     public String getTitle() {
