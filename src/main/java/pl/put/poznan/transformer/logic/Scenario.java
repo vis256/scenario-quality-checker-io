@@ -2,15 +2,24 @@ package pl.put.poznan.transformer.logic;
 
 import java.util.ArrayList;
 
-public class Scenario implements java.io.Serializable {
+public class Scenario {
     private String title;
     private ArrayList<String> actors;
+    private String systemActor;
     private ArrayList<Step> steps;
 
-    public Scenario(String title) {
+    public Scenario(String title, String systemActor, ArrayList<String> actors, ArrayList<Step> steps) {
         this.title = title;
-        this.actors = new ArrayList();
-        this.steps = new ArrayList();
+        this.systemActor = systemActor;
+        this.actors = actors;
+        this.steps = steps;
+    }
+
+    public Scenario(String title, String systemActor) {
+        this.title = title;
+        this.systemActor = systemActor;
+        this.actors = null;
+        this.steps = null;
     }
 
     public String getTitle() {
@@ -24,4 +33,16 @@ public class Scenario implements java.io.Serializable {
     public ArrayList<Step> getSteps() {
         return this.steps;
     }
+
+    public void addStep(Step step) {
+        this.steps.add(step);
+    }
+
+    public void addActor(String actor) {
+        this.actors.add(actor);
+    }
+
+    public String getSystemActor() { return systemActor; }
+
+    public void setSystemActor(String systemActor) { this.systemActor = systemActor; }
 }
