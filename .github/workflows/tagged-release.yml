@@ -40,7 +40,7 @@ jobs:
 
       - name: "Javadocs"
         run: mvn javadoc:javadoc
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         with:
           name: Javadoc
-          path: target/javadoc-bundle-options/javadoc-options-javadoc-resources.xml
+          path: javadocs
