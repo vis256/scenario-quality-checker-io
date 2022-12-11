@@ -37,3 +37,10 @@ jobs:
           automatic_release_tag: "latest"
           files: |
             target/scenario-quality-checker-io-0.1.jar
+
+      - name: "Javadocs"
+        run: mvn javadoc:javadoc
+      - uses: actions/upload-artifact@v2
+        with:
+          name: Javadoc
+          path: target/javadoc-bundle-options/javadoc-options-javadoc-resources.xml
