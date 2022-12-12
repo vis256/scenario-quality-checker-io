@@ -43,3 +43,6 @@ buildNumber.properties
 
 # IntelliJ IDEA 
 .idea/
+
+# Generated Javadoc
+javadocs/
