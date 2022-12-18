@@ -15,7 +15,7 @@ public class QualityChecker {
 
     public int getStepCount() {
         VisitorStepCount v = new VisitorStepCount();
-        scenario.accept(v);
+        v.visit( this.scenario );
         return v.getStepNumer();
     }
 }
