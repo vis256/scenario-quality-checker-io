@@ -1,0 +1,38 @@
+{
+  "title": "Some title",
+  "actors": [
+    "actorA",
+    "actorB"
+  ],
+  "system_actor": "System",
+  "steps": [
+    {
+      "text": "actorA goes to sleep"
+    },
+    {
+      "text": "actorB wakes up"
+    },
+    {
+      "text": "System boots up"
+    },
+    {
+      "text": "IF actorA is alive",
+      "steps": [
+        {
+          "text": "actorA makes a coffee"
+        },
+        {
+          "text": "otherActor steals the coffee"
+        },
+        {
+          "text": "FOR EACH more nesting",
+          "steps": [
+            {
+              "text": "Nothing to see there"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
