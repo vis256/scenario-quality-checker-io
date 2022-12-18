@@ -2,6 +2,7 @@ package pl.put.poznan.transformer.logic;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import pl.put.poznan.transformer.logic.visitor.Visitor;
 import pl.put.poznan.transformer.rest.ExportController;
 
 import java.util.ArrayList;
@@ -76,7 +77,11 @@ public class Scenario {
      * @return steps ArrayList
      */
     public ArrayList<Step> getSteps() {
-        return this.steps;
+        if (this.steps != null) {
+            return this.steps;
+        } else {
+            return new ArrayList<>();
+        }
     }
 
     /**
@@ -106,4 +111,8 @@ public class Scenario {
      * @param systemActor system actor to set
      */
     public void setSystemActor(String systemActor) { this.systemActor = systemActor; }
+
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
+    }
 }

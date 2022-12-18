@@ -1,5 +1,7 @@
 package pl.put.poznan.transformer.logic;
 
+import pl.put.poznan.transformer.logic.visitor.Visitor;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -17,7 +19,7 @@ public class Step implements Serializable {
      */
     public Step(String text) {
         this.text = text;
-        this.steps = null;
+        this.steps = new ArrayList<>();
     }
 
     /**
@@ -46,11 +48,21 @@ public class Step implements Serializable {
      * Getter for steps
      * @return steps ArrayList
      */
-    public ArrayList<Step> getSteps() { return steps; }
+    public ArrayList<Step> getSteps() {
+        if (this.steps != null) {
+            return this.steps;
+        } else {
+            return new ArrayList<>();
+        }
+    }
 
     /**
      * Adds a step to the steps ArrayList
      * @param step step to add to the steps ArrayList
      */
     public void addStep(Step step) { this.steps.add(step); }
+
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
+    }
 }

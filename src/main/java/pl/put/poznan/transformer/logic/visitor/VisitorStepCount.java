@@ -11,12 +11,17 @@ public class VisitorStepCount implements Visitor {
     private int steps = 0;
     @Override
     public void visit(Scenario scenario) {
-        steps++;
+        for (Step substep : scenario.getSteps()) {
+            substep.accept( this );
+        }
     }
 
     @Override
     public void visit(Step step) {
-
+        this.steps++;
+        for (Step substep : step.getSteps()) {
+            substep.accept( this );
+        }
     }
 
     public int getStepNumer() {
