@@ -10,21 +10,21 @@ import pl.put.poznan.transformer.logic.Scenario;
 
 import java.io.IOException;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-class VisitorNoActorStepsCountTest {
+class VisitorNoActorStepsTest {
     private static Scenario s;
     @BeforeAll
     static void loadScenario() throws IOException {
-        var tmp = IOUtils.toString(VisitorNoActorStepsCountTest.class.getResourceAsStream("sampleScenario.json"), "UTF-8");
+        var tmp = IOUtils.toString(VisitorNoActorStepsTest.class.getResourceAsStream("sampleScenario.json"), "UTF-8");
         Gson g1 = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES).create();
-        VisitorNoActorStepsCountTest.s = g1.fromJson(tmp, Scenario.class);
+        VisitorNoActorStepsTest.s = g1.fromJson(tmp, Scenario.class);
     }
 
     @Test
     void testVisit() {
-        VisitorNoActorStepsCount v1 = new VisitorNoActorStepsCount();
+        VisitorNoActorSteps v1 = new VisitorNoActorSteps();
         v1.visit(this.s);
-        assertEquals(2, v1.getSteps());
+        var steps = v1.getSteps();
+        assert steps.contains("otherActor steals the coffee");
+        assert steps.contains("Nothing to see there");
     }
 }

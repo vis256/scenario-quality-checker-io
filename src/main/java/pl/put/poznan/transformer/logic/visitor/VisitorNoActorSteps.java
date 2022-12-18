@@ -5,10 +5,10 @@ import pl.put.poznan.transformer.logic.Step;
 
 import java.util.ArrayList;
 
-public class VisitorNoActorStepsCount implements Visitor {
+public class VisitorNoActorSteps implements Visitor {
     private ArrayList<String> actors;
     private String systemActor;
-    private int steps = 0;
+    private ArrayList<String> steps = new ArrayList<>();
 
     @Override
     public void visit(Scenario scenario) {
@@ -27,7 +27,7 @@ public class VisitorNoActorStepsCount implements Visitor {
                 if (step.getText().startsWith(actor)) { isOk = true; }
             }
             if (step.getText().startsWith(this.systemActor)) { isOk = true; }
-            if (!isOk) { this.steps++; }
+            if (!isOk) { this.steps.add(step.getText()); }
         } else {
             for (Step s : step.getSteps()) {
                 visit(s);
@@ -35,7 +35,7 @@ public class VisitorNoActorStepsCount implements Visitor {
         }
     }
 
-    public int getSteps() {
+    public ArrayList<String> getSteps() {
         return steps;
     }
 }
