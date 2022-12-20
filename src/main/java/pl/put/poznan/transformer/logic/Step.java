@@ -62,6 +62,10 @@ public class Step implements Serializable {
      */
     public void addStep(Step step) { this.steps.add(step); }
 
+    /**
+     * Accepts a Visitor and allows it to visit and process Step data
+     * @param visitor
+     */
     public void accept(Visitor visitor) {
         visitor.visit(this);
     }

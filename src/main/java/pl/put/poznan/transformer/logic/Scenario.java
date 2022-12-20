@@ -112,6 +112,10 @@ public class Scenario {
      */
     public void setSystemActor(String systemActor) { this.systemActor = systemActor; }
 
+    /**
+     * Accepts a Visitor and allows it to visit and process Scenario data
+     * @param visitor
+     */
     public void accept(Visitor visitor) {
         visitor.visit(this);
     }
