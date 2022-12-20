@@ -13,7 +13,7 @@
 
     <groupId>pl.put.poznan</groupId>
     <artifactId>scenario-quality-checker-io</artifactId>
-    <version>0.4.2</version>
+    <version>0.6.6.6</version>
 
 	<properties>
         <java.version>11</java.version>
