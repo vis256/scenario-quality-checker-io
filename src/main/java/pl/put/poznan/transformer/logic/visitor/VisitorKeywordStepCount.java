@@ -17,7 +17,7 @@ public class VisitorKeywordStepCount implements Visitor {
     public void visit(Step step) {
         String text = step.getText();
         if(text.startsWith("FOR EACH") || text.startsWith("IF") || text.startsWith("ELSE")) {
-            keywords++;
+            this.keywords++;
         }
         for (Step substep : step.getSteps()) {
             substep.accept( this );
