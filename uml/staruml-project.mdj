@@ -1699,7 +1699,7 @@
 											"top": 124,
 											"width": 286,
 											"height": 13,
-											"text": "+countNoActorSteps(): int",
+											"text": "+getNoActorSteps(): ArrayList<String>",
 											"horizontalAlignment": 0
 										},
 										{
@@ -4123,7 +4123,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGFAT0IduDdKAU="
 							},
-							"name": "countNoActorSteps",
+							"name": "getNoActorSteps",
 							"parameters": [
 								{
 									"_type": "UMLParameter",
@@ -4131,7 +4131,7 @@
 									"_parent": {
 										"$ref": "AAAAAAGFAT8Oq+Xw5+k="
 									},
-									"type": "int",
+									"type": "ArrayList<String>",
 									"direction": "return"
 								}
 							]
