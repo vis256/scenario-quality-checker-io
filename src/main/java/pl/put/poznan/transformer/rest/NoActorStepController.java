@@ -8,8 +8,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import pl.put.poznan.transformer.logic.QualityChecker;
 
+import java.util.ArrayList;
+
 @RestController
-@RequestMapping("/noActorStepCount")
+@RequestMapping("/noActorSteps")
 public class NoActorStepController {
     private static final Logger log = LoggerFactory.getLogger(NoActorStepController.class);
 
@@ -17,10 +19,9 @@ public class NoActorStepController {
 
     public NoActorStepController(QualityChecker q1) { this.qualityChecker = q1; }
     @RequestMapping(method = RequestMethod.GET, produces = "application/json")
-    public String get() {
-        log.info("[GET] /noActorStepCount");
+    public ArrayList<String> get() {
+        log.info("[GET] /noActorSteps");
 
-        Gson g1 = new Gson();
-        return g1.toJson(qualityChecker.getNoActorSteps());
+        return qualityChecker.getNoActorSteps();
     }
 }
