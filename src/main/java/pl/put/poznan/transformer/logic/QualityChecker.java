@@ -1,7 +1,10 @@
 package pl.put.poznan.transformer.logic;
 
+import pl.put.poznan.transformer.logic.visitor.VisitorNoActorSteps;
 import pl.put.poznan.transformer.logic.visitor.VisitorStepCount;
 import pl.put.poznan.transformer.logic.visitor.VisitorKeywordStepCount;
+
+import java.util.ArrayList;
 
 public class QualityChecker {
     private Scenario scenario;
@@ -18,6 +21,12 @@ public class QualityChecker {
         VisitorStepCount v = new VisitorStepCount();
         v.visit( this.scenario );
         return v.getStepNumer();
+    }
+
+    public ArrayList<String> getNoActorSteps() {
+        VisitorNoActorSteps v = new VisitorNoActorSteps();
+        v.visit(this.scenario);
+        return v.getSteps();
     }
 
     public int getKeywordsCount() {
