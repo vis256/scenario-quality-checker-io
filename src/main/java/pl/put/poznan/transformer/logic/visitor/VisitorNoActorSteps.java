@@ -21,7 +21,7 @@ public class VisitorNoActorSteps implements Visitor {
 
     @Override
     public void visit(Step step) {
-        if (step.getSteps() == null) {
+        if (step.getSteps().isEmpty()) {
             boolean isOk = false;
             for (String actor : this.actors) {
                 if (step.getText().startsWith(actor)) { isOk = true; }
